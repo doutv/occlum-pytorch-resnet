@@ -15,3 +15,6 @@ targets:
     copy:
       - files: 
           - ../resnet.py
+          - ../resnet50.pth
+          - ../imagenet_classes.txt
+          - ../dog.jpg

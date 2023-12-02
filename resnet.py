@@ -1,8 +1,15 @@
 import torch
 from PIL import Image
 from torchvision import transforms
+from torchvision.models import resnet50
+import argparse
 
-model = torch.hub.load('pytorch/vision:v0.9.0', 'resnet50', pretrained=True)
+parser = argparse.ArgumentParser("simple_example")
+parser.add_argument("resnet_path", help="resnet pth path", type=str)
+args = parser.parse_args()
+
+model = resnet50()
+model.load_state_dict(torch.load(args.resnet_path))
 model.eval()
 
 filename = "dog.jpg"
